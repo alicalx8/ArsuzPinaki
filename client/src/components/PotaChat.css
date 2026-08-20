@@ -1,0 +1,109 @@
+.pota-chat {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 320px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  z-index: 1001;
+  font-size: 17px;
+  box-shadow: 0 2px 12px #0005;
+}
+
+.pota-chat-messages {
+  max-height: 160px;
+  overflow-y: auto;
+  margin-bottom: 8px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.pota-message {
+  margin-bottom: 8px;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.message-player {
+  font-weight: bold;
+  color: #ffd700;
+  font-size: 14px;
+}
+
+.message-text {
+  color: #fff;
+  word-wrap: break-word;
+}
+
+.message-time {
+  font-size: 12px;
+  color: #ccc;
+  text-align: right;
+}
+
+.pota-chat-input-container {
+  display: flex;
+  gap: 6px;
+}
+
+.pota-chat-input {
+  flex: 1;
+  border-radius: 6px;
+  border: none;
+  padding: 6px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #222;
+}
+
+.pota-chat-input:focus {
+  outline: none;
+  background: #fff;
+  box-shadow: 0 0 0 2px #ffd700;
+}
+
+.pota-chat-send {
+  border-radius: 6px;
+  border: none;
+  background: #ffd700;
+  color: #222;
+  font-weight: bold;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pota-chat-send:hover {
+  background: #ffed4e;
+  transform: translateY(-1px);
+}
+
+.pota-chat-send:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .pota-chat {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: calc(100vw - 20px);
+    max-width: 320px;
+    font-size: 16px;
+  }
+  
+  .pota-chat-messages {
+    max-height: 120px;
+  }
+  
+  .pota-chat-input {
+    font-size: 14px;
+  }
+}

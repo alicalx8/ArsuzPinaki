@@ -1,0 +1,61 @@
+.App {
+  text-align: center;
+  background: #0b3d91;
+  color: #fff;
+  min-height: 100vh;
+  padding-top: 0;
+}
+
+
+
+.game-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.left-panel {
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  z-index: 100;
+  text-align: left;
+  max-width: 300px;
+}
+
+.right-panel {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 100;
+  text-align: right;
+  min-width: 220px;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .left-panel,
+  .right-panel {
+    position: static;
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .game-container {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding-top: 0;
+  }
+  
+  .game-container {
+    padding: 5px;
+  }
+}
+
+/* Oyun Bilgileri paneli CSS'leri kaldırıldı - İhale Bilgileri paneli zaten çalışıyor */

@@ -1,0 +1,386 @@
+.game-board {
+  position: relative;
+  width: 1000px;
+  height: 700px;
+  margin: 10px auto;
+  display: block;
+}
+
+.waiting-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+.waiting-message h3 {
+  color: #ffd700;
+  margin: 0 0 15px 0;
+  font-size: 24px;
+}
+
+.waiting-message p {
+  color: #ccc;
+  font-size: 16px;
+  margin: 0;
+}
+
+
+
+.player {
+  position: absolute;
+  background: #174ea6;
+  padding: 8px 10px;
+  border-radius: 10px;
+  width: 320px;
+  min-height: 60px;
+  box-sizing: border-box;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: visible;
+  transition: all 0.3s ease;
+}
+
+.player h4 {
+  margin: 0 0 8px 0;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dealer-badge {
+  font-size: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+#player1 { 
+  left: 340px; 
+  bottom: 90px; 
+}
+
+#player2 { 
+  right: 10px; 
+  top: 230px;
+}
+
+#player3 { 
+  left: 340px; 
+  top: 45px; 
+}
+
+#player4 { 
+  left: 10px; 
+  top: 230px; 
+}
+
+.table-center {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 320px;
+  height: 180px;
+  margin-left: -160px;
+  margin-top: -90px;
+  background: #0e224a;
+  border-radius: 40px;
+  box-shadow: 0 0 30px #0008;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.table-center h3 {
+  margin: 0 0 10px 0;
+  color: #fff;
+  font-size: 22px;
+}
+
+.center-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+  gap: 20px;
+}
+
+.cards {
+  width: 100%;
+  min-height: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.waiting-message {
+  text-align: center;
+  color: #ccc;
+  font-style: italic;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.card-row {
+  white-space: nowrap;
+  overflow-x: auto;
+  text-align: left;
+  margin-bottom: 2px;
+}
+
+.card {
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  border-radius: 5px;
+  padding: 2px 7px;
+  margin: 1px;
+  font-weight: bold;
+  box-shadow: 1px 1px 4px #2226;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.card.hearts { color: #d00; }
+.card.diamonds { color: #d00; }
+.card.spades { color: #000; }
+.card.clubs { color: #000; }
+
+.card.clickable {
+  cursor: pointer;
+  border: 2px solid #ffd700;
+  background: linear-gradient(145deg, #fff, #f0f0f0);
+  transition: all 0.2s ease;
+}
+
+.card.clickable:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+  border-color: #ffed4e;
+  background: linear-gradient(145deg, #fff, #ffed4e);
+}
+
+.card.playable {
+  cursor: pointer;
+  border: 2px solid #4CAF50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+  background: linear-gradient(145deg, #fff, #e8f5e8);
+  animation: pulse-green 2s infinite;
+}
+
+.card.not-playable {
+  opacity: 0.6;
+  cursor: not-allowed;
+  border: 2px solid #f44336;
+  background: linear-gradient(145deg, #f5f5f5, #ffebee);
+  filter: grayscale(30%);
+}
+
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 8px rgba(76, 175, 80, 0.5); }
+  50% { box-shadow: 0 0 16px rgba(76, 175, 80, 0.8); }
+  100% { box-shadow: 0 0 8px rgba(76, 175, 80, 0.5); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}
+
+@keyframes cardPlay {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes cardDrop {
+  0% { 
+    transform: scale(0.8) translateY(-20px); 
+    opacity: 0;
+  }
+  50% { 
+    transform: scale(1.1) translateY(5px); 
+    opacity: 1;
+  }
+  100% { 
+    transform: scale(1) translateY(0); 
+    opacity: 1;
+  }
+}
+
+.card.center-card {
+  margin: 0;
+}
+
+.active-player {
+  box-shadow: 0 0 24px 6px #fff, 0 0 0 4px #ffd700;
+  border: 2px solid #ffd700;
+  z-index: 3;
+}
+
+.auction-active {
+  box-shadow: 0 0 32px 10px #fff, 0 0 0 4px #00e6ff;
+  border: 2.5px solid #00e6ff;
+  z-index: 4;
+}
+
+/* El Sonucu Gösterimi */
+.trick-result-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.trick-result {
+  background: linear-gradient(135deg, #0a1f3a, #051428);
+  border: 3px solid #ffd700;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+  animation: slideIn 0.5s ease-out;
+}
+
+.trick-result h2 {
+  color: #ffd700;
+  margin: 0 0 20px 0;
+  font-size: 28px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.trick-winner {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(255, 215, 0, 0.2);
+  border-radius: 10px;
+  border: 1px solid #ffd700;
+}
+
+.trick-cards {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.result-card {
+  transform: scale(1.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* El Durumu Gösterimi */
+.trick-status {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    transform: translateY(-50px) scale(0.9);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1200px) {
+  .game-board {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+  }
+  
+  .player {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+  }
+  
+  #player1, #player2, #player3, #player4 {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
+  
+  .table-center {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 20px auto;
+  }
+  
+  .trick-result {
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .trick-result h2 {
+    font-size: 24px;
+  }
+  
+  .trick-winner {
+    font-size: 20px;
+  }
+  
+  .trick-cards {
+    gap: 10px;
+  }
+  
+  .result-card {
+    transform: scale(1.1);
+  }
+}
