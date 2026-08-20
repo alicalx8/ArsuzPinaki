@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: pinaki-app
+    env: node
+    buildCommand: cd client && npm install && npm run build
+    startCommand: node server.js
+    plan: free
+    autoDeploy: true
